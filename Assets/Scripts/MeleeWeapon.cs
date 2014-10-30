@@ -34,6 +34,8 @@ public class MeleeWeapon : MonoBehaviour, IWeapon {
 		//Find target
 		if(collided == null) {Debug.Log("No emenies found"); return; }
 		Debug.Log("Attacking: " + collided.name);
+
+		Destroy(collided.gameObject);
 		//If target do attack
 		//else nothing
 	}

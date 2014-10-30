@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour, IUnit {
 
 	public bool DropAhead {
 		get {
-			Vector2 start = rigidbody2D.position + new Vector2((collider2D.bounds.extents.x * (direction == Direction.right ? 1 : -1)),0);
+			Vector2 start = rigidbody2D.position + new Vector2((collider2D.bounds.extents.x * (float)((direction == Direction.right ? 1 : -1)) * 1.3f),0);
 			RaycastHit2D hit = Physics2D.Raycast(start, -Vector2.up, look_distance, ground_mask);
 			return !hit;
 		}
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour, IUnit {
 
 	public bool WallAhead {
 		get {
-			Vector2 start = rigidbody2D.position + new Vector2((collider2D.bounds.extents.x * (direction == Direction.right ? 1 : -1)),0);
+			Vector2 start = rigidbody2D.position + new Vector2((collider2D.bounds.extents.x * (float)((direction == Direction.right ? 1 : -1)) * 1.3f),0);
 			RaycastHit2D hit = Physics2D.Raycast(start, (direction == Direction.right ? Vector2.right : -Vector2.right), look_distance, ground_mask);
 			return hit;
 		}
